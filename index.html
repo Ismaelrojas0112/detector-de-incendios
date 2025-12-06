@@ -130,10 +130,20 @@
                 <div class="max-w-4xl mx-auto text-center">
                     <h2 class="text-3xl font-bold mb-8 text-alert">El Problema</h2>
                     <p class="text-lg text-slate-300 leading-relaxed">
-                        Los sistemas tradicionales de detección de incendios suelen tener una alta latencia y dependen
-                        de sensores físicos que solo se activan cuando el fuego ya ha avanzado. FireGuard AI utiliza
-                        visión artificial para una detección temprana, permitiendo una respuesta inmediata y
-                        automatizada para salvar vidas y reducir daños materiales.
+                        La detección temprana de incendios es esencial para prevenir desastres, especialmente en áreas
+                        de difícil acceso. Los sistemas tradicionales suelen presentar alta latencia y dependen de
+                        sensores físicos que solo se activan cuando el fuego ya ha avanzado, lo que limita la capacidad
+                        de respuesta.
+                        <br>
+                        <br>FireGuard AI propone una solución innovadora basada en visión artificial e inteligencia
+                        artificial (IA) para identificar fuego en tiempo real a través de la cámara de una laptop. Al
+                        detectar fuego, el sistema activa automáticamente una bomba de agua, enciende un LED rojo y un
+                        buzzer para alertar sobre el peligro. En ausencia de fuego, se ilumina un LED verde, indicando
+                        condiciones seguras.
+                        <br>
+                        <br>Este enfoque combina IA y automatización para ofrecer una respuesta inmediata y eficiente,
+                        reduciendo daños materiales y salvando vidas. FireGuard AI representa un avance significativo
+                        frente a los métodos tradicionales, proporcionando una solución rápida, inteligente y confiable
                     </p>
                 </div>
             </div>
@@ -142,33 +152,84 @@
         <!-- Architecture Section -->
         <section id="architecture" class="py-20 bg-slate-800/30">
             <div class="container mx-auto px-6">
-                <h2 class="text-3xl font-bold text-center mb-12 text-tech">Arquitectura del Sistema</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                    <div>
-                        <h3 class="text-xl font-bold mb-4 text-white">Stack Tecnológico</h3>
-                        <ul class="space-y-2 mb-8 text-slate-300">
-                            <li class="flex items-center"><span class="w-2 h-2 bg-tech rounded-full mr-2"></span>Python
-                                3.12</li>
-                            <li class="flex items-center"><span class="w-2 h-2 bg-tech rounded-full mr-2"></span>YOLOv8
-                                (Ultralytics)</li>
-                            <li class="flex items-center"><span class="w-2 h-2 bg-tech rounded-full mr-2"></span>OpenCV
-                            </li>
-                        </ul>
+                <h2 class="text-3xl font-bold text-center mb-16 text-tech">Arquitectura del Sistema</h2>
 
-                        <h3 class="text-xl font-bold mb-4 text-white">Hardware</h3>
-                        <ul class="space-y-2 text-slate-300">
-                            <li class="flex items-center"><span class="w-2 h-2 bg-alert rounded-full mr-2"></span>ESP32
-                                (Microcontrolador)</li>
-                            <li class="flex items-center"><span class="w-2 h-2 bg-alert rounded-full mr-2"></span>Driver
-                                L293D & Bomba de agua 5V</li>
-                            <li class="flex items-center"><span class="w-2 h-2 bg-alert rounded-full mr-2"></span>Buzzer
-                                & LED</li>
-                        </ul>
+                <!-- Software Stack -->
+                <div class="mb-20">
+                    <h3 class="text-2xl font-bold mb-8 text-center text-white">Stack Tecnológico</h3>
+                    <div class="flex flex-wrap justify-center gap-6">
+                        <div
+                            class="px-8 py-4 glass rounded-full border border-tech/30 hover:bg-tech/10 transition-colors cursor-default">
+                            <span class="text-tech font-bold text-lg">Python 3.12</span>
+                        </div>
+                        <div
+                            class="px-8 py-4 glass rounded-full border border-tech/30 hover:bg-tech/10 transition-colors cursor-default">
+                            <span class="text-tech font-bold text-lg">YOLOv8</span>
+                        </div>
+                        <div
+                            class="px-8 py-4 glass rounded-full border border-tech/30 hover:bg-tech/10 transition-colors cursor-default">
+                            <span class="text-tech font-bold text-lg">OpenCV</span>
+                        </div>
                     </div>
-                    <div class="glass p-4 rounded-xl">
-                        <!-- Placeholder for diagram -->
-                        <div class="aspect-video bg-slate-700 rounded flex items-center justify-center text-slate-500">
-                            Diagrama: Cámara -> IA -> Serial -> ESP32 -> Bomba
+                </div>
+
+                <!-- Hardware Grid -->
+                <div>
+                    <h3 class="text-2xl font-bold mb-10 text-center text-white">Hardware y Materiales</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <!-- ESP32 Card -->
+                        <div
+                            class="glass p-6 rounded-xl hover:scale-105 transition-all duration-300 group border border-slate-700 hover:border-tech/50">
+                            <div class="h-48 mb-6 overflow-hidden rounded-lg relative bg-slate-900">
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent opacity-60 z-10">
+                                </div>
+                                <img src="/architecture/esp32.png" alt="ESP32 Microcontroller"
+                                    class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                            </div>
+                            <h4 class="text-xl font-bold mb-3 text-tech group-hover:text-cyan-300 transition-colors">
+                                ESP32</h4>
+                            <p class="text-slate-400 text-sm leading-relaxed">
+                                El cerebro del sistema. Microcontrolador de alto rendimiento con conectividad Wi-Fi y
+                                Bluetooth integrada, encargado de recibir las señales de la IA y controlar los
+                                actuadores.
+                            </p>
+                        </div>
+
+                        <!-- Actuators Card -->
+                        <div
+                            class="glass p-6 rounded-xl hover:scale-105 transition-all duration-300 group border border-slate-700 hover:border-alert/50">
+                            <div class="h-48 mb-6 overflow-hidden rounded-lg relative bg-slate-900">
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent opacity-60 z-10">
+                                </div>
+                                <img src="/architecture/pump.png" alt="Driver & Pump"
+                                    class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                            </div>
+                            <h4 class="text-xl font-bold mb-3 text-alert group-hover:text-red-400 transition-colors">
+                                Actuadores</h4>
+                            <p class="text-slate-400 text-sm leading-relaxed">
+                                Sistema de respuesta física compuesto por un Driver L293D y una bomba de agua de 5V,
+                                activados automáticamente al detectar fuego confirmado.
+                            </p>
+                        </div>
+
+                        <!-- Alerts Card -->
+                        <div
+                            class="glass p-6 rounded-xl hover:scale-105 transition-all duration-300 group border border-slate-700 hover:border-alert/50">
+                            <div class="h-48 mb-6 overflow-hidden rounded-lg relative bg-slate-900">
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent opacity-60 z-10">
+                                </div>
+                                <img src="/architecture/alarm.png" alt="Buzzer & LED"
+                                    class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                            </div>
+                            <h4 class="text-xl font-bold mb-3 text-alert group-hover:text-red-400 transition-colors">
+                                Sistema de Alerta</h4>
+                            <p class="text-slate-400 text-sm leading-relaxed">
+                                Feedback audiovisual inmediato mediante un Buzzer piezoeléctrico y LEDs indicadores de
+                                estado (Rojo: Peligro, Verde: Seguro).
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -182,7 +243,8 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div class="glass p-6 rounded-xl">
                         <h3 class="text-xl font-bold mb-4">Métricas de Entrenamiento</h3>
-                        <p class="mb-4 text-slate-300">Entrenamiento realizado en Google Colab utilizando un dataset de
+                        <p class="mb-4 text-slate-300">Entrenamiento realizado en Google Colab utilizando un dataset
+                            de
                             Roboflow.</p>
                         <div
                             class="aspect-video bg-slate-700 rounded flex items-center justify-center text-slate-500 mb-4">
